@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CafeInventoryManagerServerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CafeInventoryManagerServerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CafeInventoryManagerServerApplication.class, args);
+    }
 
 }
