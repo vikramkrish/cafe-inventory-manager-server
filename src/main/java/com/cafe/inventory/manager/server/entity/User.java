@@ -1,6 +1,5 @@
 package com.cafe.inventory.manager.server.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +15,8 @@ public class User {
 
     private String username;
     private String email;
+    // Hashed Password
+    private String password;
 
     // Getters and setters
 
@@ -42,6 +43,15 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
 }
 
