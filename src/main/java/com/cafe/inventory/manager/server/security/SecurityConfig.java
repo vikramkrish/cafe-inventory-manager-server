@@ -18,7 +18,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/users").permitAll()  // Allow access to "users" endpoint
+                        .requestMatchers("/users/**").permitAll()  // Allow access to "users" and its sub endpoint
                         .requestMatchers("/login").permitAll()  // Allow access to "login" endpoint
                         .anyRequest().authenticated()  // All other endpoints require authentication
                 )
