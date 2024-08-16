@@ -50,12 +50,12 @@ public class UserController {
     }
 
     // Endpoint to delete user based on the ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-        if (userService.deleteUser(id)) {
-            return new ResponseEntity<>("User Deleted Successfully for the given id: [ " + id + " ]", HttpStatus.OK);
+    @DeleteMapping("/{username}")
+    public ResponseEntity<String> deleteUser(@PathVariable String username) {
+        if (userService.deleteUser(username)) {
+            return new ResponseEntity<>("User Deleted Successfully for the given id: [ " + username + " ]", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Failed to delete the user for the given id: [ " + id + " ]", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to delete the user for the given id: [ " + username + " ]", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
