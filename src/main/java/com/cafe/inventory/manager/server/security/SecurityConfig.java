@@ -18,7 +18,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/users").permitAll()  // Allow access to register endpoint
+                        .requestMatchers("/users").permitAll()  // Allow access to "users" endpoint
+                        .requestMatchers("/login").permitAll()  // Allow access to "login" endpoint
                         .anyRequest().authenticated()  // All other endpoints require authentication
                 )
                 .csrf(csrf -> csrf.disable())  // Disable CSRF protection (for testing, enable in production)
@@ -29,6 +30,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();  // For storing the encoded password
     }
 }
