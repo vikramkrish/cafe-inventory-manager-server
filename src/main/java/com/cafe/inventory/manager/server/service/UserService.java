@@ -50,8 +50,9 @@ public class UserService {
         return suggestions;
     }
 
-    public boolean deleteUser(Long userId) {
-        userRepository.deleteById(userId);
-        return userRepository.findById(userId).isEmpty();
+    public boolean deleteUser(String username) {
+        User userToBeDeleted = userRepository.findByUsername(username);
+        userRepository.delete(userToBeDeleted);
+        return userRepository.findByUsername(username) != null;
     }
 }
