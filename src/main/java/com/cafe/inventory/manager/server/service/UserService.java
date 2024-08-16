@@ -32,6 +32,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    // Method to find the user based on the username
+    public User findUserByUserName(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     // Method to check if the username exists and suggest alternatives
     public List<String> checkUsernameAndSuggest(String username) {
         List<String> suggestions = new ArrayList<>();
@@ -45,7 +50,8 @@ public class UserService {
         return suggestions;
     }
 
-    public void deleteUser(Long userId) {
+    public boolean deleteUser(Long userId) {
         userRepository.deleteById(userId);
+        return userRepository.findById(userId).isEmpty();
     }
 }
